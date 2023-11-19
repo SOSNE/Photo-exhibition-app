@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     navBarBottom: {
         width: "100%",
         height: 50,
-        backgroundColor: '#40916C',
+        backgroundColor: '#40916c',
         flexDirection: "row",
         justifyContent: "space-evenly"
     },

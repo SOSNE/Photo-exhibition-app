@@ -1,5 +1,7 @@
 import React from 'react';
 import {Image, Platform, StatusBar, StyleSheet, Text, View} from "react-native";
+import FavouriteSave from "../Components/FavouriteSave";
+import * as FileSystem from "expo-file-system";
 
 function PhotoOverview({route}) {
     const image = route.params?.data;
@@ -30,11 +32,21 @@ function PhotoOverview({route}) {
                 <View>
                     {image.title !== null && <Text style={styles.textTitle}>{image.title}</Text>}
                 </View>
-                <View>
+                <View style={{
+                    flexDirection: "row",
+                    marginLeft: 30,
+                }}>
                     {image.artist_title !== null && <Text style={styles.textArtist}>
                         Artist: {image.artist_title}
                     </Text>}
+                    <View style={{
+                        bottom: 4
+                    }}>
+                        <FavouriteSave object={image} path={`${FileSystem.documentDirectory}favouriteSave.json`}/>
+                    </View>
                 </View>
+
+
             </View>
         </View>
     );

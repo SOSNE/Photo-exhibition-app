@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Platform, ScrollView, StatusBar, StyleSheet, View} from "react-native";
+import {Platform, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import NavBottom from "../Components/NavBottom";
 import GetImage from "../Components/GetImage";
 import * as FileSystem from "expo-file-system";
@@ -21,7 +21,12 @@ function FavouriteScreen({navigation}) {
 
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <View style={styles.textTopBarr}>
+                <Text style={styles.mainTextTop}>Your Favourites</Text>
+            </View>
+            <ScrollView style={{
+                marginTop: 20,
+            }}>
 
                 <GetImage navigation={navigation} artworksList={data}></GetImage>
             </ScrollView>
@@ -37,5 +42,20 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-end",
     },
+    mainTextTop: {
+        marginTop: 5,
+        textAlign: "center",
+        color: "white",
+        fontSize: 28,
+    },
+    textTopBarr: {
+        alignSelf: "center",
+        width: "95%",
+        height: 50,
+        backgroundColor: "#40916c",
+        borderRadius: 15,
+        marginTop: 10,
+    },
 })
+
 export default FavouriteScreen;

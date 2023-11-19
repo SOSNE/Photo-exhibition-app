@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Platform, ScrollView, StatusBar, StyleSheet, View} from "react-native";
+import {Platform, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import GetImage from "../Components/GetImage";
 import NavBottom from "../Components/NavBottom";
 
@@ -50,8 +50,14 @@ function ExploreScreen({navigation}) {
     return (
 
         <View style={styles.container}>
+            <View style={styles.textTopBarr}>
+                <Text style={styles.mainTextTop}>Explore</Text>
+            </View>
             <ScrollView
                 onScroll={scrollHandler}
+                style={{
+                    marginTop: 20,
+                }}
             >
                 <View>
                     <GetImage artworksList={artworksList} navigation={navigation}/>
@@ -69,6 +75,20 @@ const styles = StyleSheet.create({
         flex: 1,
         //justifyContent: "flex-end,
     },
+    mainTextTop: {
+        marginTop: 5,
+        textAlign: "center",
+        color: "white",
+        fontSize: 28,
+    },
+    textTopBarr: {
+        alignSelf: "center",
+        width: "95%",
+        height: 50,
+        backgroundColor: "#40916c",
+        borderRadius: 15,
+        marginTop: 10,
+    }
 })
 
 export default ExploreScreen;

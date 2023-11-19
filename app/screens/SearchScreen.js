@@ -34,7 +34,7 @@ function SearchScreen({navigation}) {
             <TextInput
                 style={styles.textInput}
                 onChangeText={onTitleArtistText}
-
+                placeholder={"Search: Title/Artist"}
             />
             <ScrollView>
                 <GetImage artworksList={artworksSearchList} navigation={navigation}/>

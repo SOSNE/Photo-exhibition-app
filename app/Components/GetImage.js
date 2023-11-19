@@ -28,7 +28,7 @@ function GetImage({artworksList, navigation,}) {
                         />
                     </TouchableOpacity>
                     <View style={styles.textContainer}>
-                        <Text style={{textAlign: "center",}}>{image.title}</Text>
+                        <Text style={{textAlign: "center", fontSize: 16}}>{image.title}</Text>
                     </View>
                     <View style={styles.favouriteButton}>
                         <FavouriteSave path={`${FileSystem.documentDirectory}favouriteSave.json`} object={image}/>
