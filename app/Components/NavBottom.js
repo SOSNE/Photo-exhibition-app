@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#40916c',
         flexDirection: "row",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
     },
     navBarBottomButton: {
         resizeMode: 'contain',

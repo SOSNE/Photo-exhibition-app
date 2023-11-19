@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Platform, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import GetImage from "../Components/GetImage";
 import NavBottom from "../Components/NavBottom";
+import * as FileSystem from "expo-file-system";
 
 let pageList = [];
 
@@ -20,6 +21,7 @@ function GenerateNewRandomNumber(min, max) {
 }
 
 function ExploreScreen({navigation}) {
+
     const [artworksList, setArtworksList] = useState([]);
     const [pageNum, setPageNum] = useState(GenerateNewRandomNumber(1, 154));
 
@@ -33,7 +35,7 @@ function ExploreScreen({navigation}) {
     }
 
     useEffect(() => {
-        fetch(`https://api.artic.edu/api/v1/artworks/search?q=[term][is_public_domain]=true&page=${pageNum}&limit=8&fields=id,title,image_id,artist_title`)
+        fetch(`https://api.artic.edu/api/v1/artworks/search?q=[term][is_public_domain]=true&page=${pageNum}&limit=8&fields=id,title,image_id,artist_title,date_start,date_end,is_zoomable,inscriptions,description`)
             .then(response => response.json())
             .then(data => {
                 if (data.data !== undefined) {
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#40916c",
         borderRadius: 15,
         marginTop: 10,
-    }
+    },
 })
 
 export default ExploreScreen;

@@ -1,12 +1,13 @@
+//import {ImageZoom} from '@likashefqet/react-native-image-zoom';
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, Text, View} from "react-native";
 import FavouriteSave from "./FavouriteSave";
 import * as FileSystem from 'expo-file-system';
 
+
 function GetImage({artworksList, navigation,}) {
     return (
-
-
+        
         <View style={{alignItems: "center",}}>
             {artworksList.length > 0 && artworksList.map(image => (
                 <View key={image.id} style={styles.imageSegment}>
@@ -21,6 +22,9 @@ function GetImage({artworksList, navigation,}) {
                             source={{
                                 uri: `https://www.artic.edu/iiif/2/${image.image_id}/full/843,/0/default.jpg`,
                             }}
+                            minScale={0.5}
+                            maxScale={3}
+
                             style={{
                                 width: "100%", height: 300, marginBottom: 20,
                             }}
@@ -47,12 +51,13 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingTop: 20,
         borderRadius: 15,
+        borderColor: "black",
+        borderWidth: 1,
     },
     textContainer: {
         alignItems: 'center',
         marginLeft: 45,
         marginRight: 45,
-
     },
     favouriteButton: {
         bottom: 26,
