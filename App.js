@@ -4,7 +4,7 @@ import SearchScreen from "./app/screens/SearchScreen";
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import PhotoOverview from "./app/screens/PhotoOverview";
-import NavBottom from "./app/Components/NavBottom";
+
 
 const Stack = createStackNavigator();
 

@@ -1,14 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {
-    Dimensions,
-    Image,
     Platform,
     KeyboardAvoidingView,
     StatusBar,
     StyleSheet,
     TextInput,
-    TouchableOpacity,
-    View, ScrollView
+    ScrollView
 } from "react-native";
 import NavBottom from "../Components/NavBottom";
 import GetImage from "../Components/GetImage";

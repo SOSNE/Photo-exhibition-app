@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Platform, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
+import {Image, Platform, StatusBar, StyleSheet, Text, View} from "react-native";
 
 function PhotoOverview({route}) {
     const image = route.params?.data;

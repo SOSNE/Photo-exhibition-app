@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, from 'react';
 import {Image, StyleSheet, TouchableOpacity, Text, View} from "react-native";
 import FavouriteSave from "./FavouriteSave";
 

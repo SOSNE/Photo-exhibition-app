@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Image, Platform, Dimensions, ScrollView, StatusBar, StyleSheet, TouchableOpacity, View} from "react-native";
+import {Platform, ScrollView, StatusBar, StyleSheet, View} from "react-native";
 import GetImage from "../Components/GetImage";
 import NavBottom from "../Components/NavBottom";
 
