@@ -3,33 +3,31 @@ import {Image, TouchableOpacity, View} from "react-native";
 import * as FileSystem from 'expo-file-system';
 import deepEqual from 'deep-equal';
 
-//let [dataForButton, setDataForButton] = useState([]);
 let data = [];
 
-const saveDataToFile = async (path, object) => {
-
-    try {
-        const fileContent = await FileSystem.readAsStringAsync(path);
-        data = JSON.parse(fileContent);
-        if (!data.some(item => deepEqual(item, object))) {
-            data.push(object);
-            await FileSystem.writeAsStringAsync(path, JSON.stringify(data))
-
-        } else {
-            data = data.filter(item => !deepEqual(item, object));
-            await FileSystem.writeAsStringAsync(path, JSON.stringify(data));
-        }
-
-    } catch (error) {
-        return null
-    }
-}
-
 function FavouriteSave({path, object}) {
-    useEffect(() => {
-
-    }, [data]);
-    console.log(data)
+    const [artworksDataList, setArtworksDataList] = useState([]);
+    const saveDataToFile = async (path, object) => {
+        try {
+            const fileContent = await FileSystem.readAsStringAsync(path);
+            data = JSON.parse(fileContent);
+            if (!data.some(item => deepEqual(item, object))) {
+                data.push(object);
+            } else {
+                data = data.filter(item => !deepEqual(item, object));
+            }
+            await FileSystem.writeAsStringAsync(path, JSON.stringify(data));
+            setArtworksDataList(data);
+        } catch (error) {
+            return null
+        }
+    }
+    if (artworksDataList != null) {
+        useEffect(() => {
+            
+            }, [artworksDataList]
+        )
+    }
     return (
         <View>
             <TouchableOpacity

@@ -9,15 +9,13 @@ import {
 } from "react-native";
 import NavBottom from "../Components/NavBottom";
 import GetImage from "../Components/GetImage";
-import * as FileSystem from "expo-file-system";
 
 
 function SearchScreen({navigation}) {
-    
+
     const [titleArtistText, onTitleArtistText] = useState('Useless Text');
     const [artworksSearchList, setArtworksSearchList] = useState([]);
     useEffect(() => {
-        console.log(titleArtistText);
         fetch(`https://api.artic.edu/api/v1/artworks/search?q=${titleArtistText}&[term][is_public_domain]=true&limit=8&fields=id,title,image_id,artist_title,date_start,date_end,is_zoomable,inscriptions,description
 `)
             .then(response => response.json())

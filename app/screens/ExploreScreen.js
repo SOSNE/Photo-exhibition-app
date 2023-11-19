@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Platform, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import GetImage from "../Components/GetImage";
 import NavBottom from "../Components/NavBottom";
-import * as FileSystem from "expo-file-system";
 
 let pageList = [];
 

@@ -1,4 +1,3 @@
-//import {ImageZoom} from '@likashefqet/react-native-image-zoom';
 import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, Text, View} from "react-native";
 import FavouriteSave from "./FavouriteSave";
@@ -7,7 +6,7 @@ import * as FileSystem from 'expo-file-system';
 
 function GetImage({artworksList, navigation,}) {
     return (
-        
+
         <View style={{alignItems: "center",}}>
             {artworksList.length > 0 && artworksList.map(image => (
                 <View key={image.id} style={styles.imageSegment}>

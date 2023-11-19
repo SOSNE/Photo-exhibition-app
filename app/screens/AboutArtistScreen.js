@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Platform, ScrollView, StatusBar, StyleSheet, Text, View} from "react-native";
 import GetImage from "../Components/GetImage";
-import HTML from 'react-native-render-html';
+
 
 function AboutArtistScreen({route, navigation}) {
     const image = route.params?.data;
     const [artworksArtistTitleList, setArtworksArtistTitleList] = useState([]);
     let [artistInformationList, setArtistInformationList] = useState([]);
     useEffect(() => {
-        //console.log(titleArtistText);
         fetch(`https://api.artic.edu/api/v1/artworks/search?q=${image.artist_title}&[term][is_public_domain]=true&limit=8&fields=id,title,image_id,artist_title,date_start,date_end,is_zoomable,inscriptions,description
 `)
             .then(response => response.json())
@@ -21,7 +20,6 @@ function AboutArtistScreen({route, navigation}) {
             .then(response => response.json())
             .then(data => {
                 setArtistInformationList(data.data);
-                console.log(image.artist_title)
             })
             .catch(error => console.error('Error:', error));
     }, []);
@@ -29,7 +27,7 @@ function AboutArtistScreen({route, navigation}) {
         <View style={styles.container}>
             <View>{artistInformationList.length > 0 && <ScrollView>
                 <View style={styles.artistInformationView}>
-                    <Text style={{marginBottom: 20}}>
+                    <Text style={{marginBottom: 20, fontSize: 17}}>
                         Name: {artistInformationList[0].title}
                     </Text>
                     <Text

@@ -1,10 +1,10 @@
 import React from 'react';
-import {Image, Platform, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Image, Platform, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, Animated} from "react-native";
 import FavouriteSave from "../Components/FavouriteSave";
 import * as FileSystem from "expo-file-system";
 
-
 function PhotoOverview({route, navigation}) {
+
     const image = route.params?.data;
     return (
         <View style={styles.container}>
@@ -14,12 +14,7 @@ function PhotoOverview({route, navigation}) {
                         source={{uri: `https://www.artic.edu/iiif/2/${image.image_id}/full/843,/0/default.jpg`}}
                         minScale={0.5}
                         maxScale={3}
-                        style={{
-                            width: '95%',
-                            height: undefined,
-                            aspectRatio: .7,
-                            marginTop: 10,
-                        }}
+                        style={styles.mainImage}
                         resizeMode="contain"
                     />
                     <View
@@ -60,7 +55,6 @@ function PhotoOverview({route, navigation}) {
                         <Text>End date: {image.date_end}</Text>
                     </View>
                 </View>
-
             </ScrollView>
         </View>
     );
@@ -73,6 +67,12 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         flex: 1,
         alignItems: "center"
+    },
+    mainImage: {
+        width: '95%',
+        height: undefined,
+        aspectRatio: .7,
+        marginTop: 10,
     },
     panel: {
         backgroundColor: "#B7E4C7",
