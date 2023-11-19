@@ -1,6 +1,7 @@
-import React, from 'react';
+import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, Text, View} from "react-native";
 import FavouriteSave from "./FavouriteSave";
+import * as FileSystem from 'expo-file-system';
 
 function GetImage({artworksList, navigation,}) {
     return (
@@ -31,7 +32,7 @@ function GetImage({artworksList, navigation,}) {
                         <Text style={{textAlign: "center",}}>{image.title}</Text>
                     </View>
                     <View style={styles.favouriteButton}>
-                        <FavouriteSave object={image}/>
+                        <FavouriteSave path={`${FileSystem.documentDirectory}favouriteSave.json`} object={image}/>
                     </View>
                 </View>
             ))}

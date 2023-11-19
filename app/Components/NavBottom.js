@@ -16,7 +16,7 @@ function NavBottom({navigation}) {
                     source={require('../assets/search-100.png')}
                 />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('FavouriteScreen')}>
                 <Image style={styles.navBarBottomButton} source={require('../assets/heart-100.png')}/>
             </TouchableOpacity>
         </View>
