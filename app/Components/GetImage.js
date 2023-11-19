@@ -9,7 +9,6 @@ function GetImage({artworksList, navigation,}) {
 
         <View style={{alignItems: "center",}}>
             {artworksList.length > 0 && artworksList.map(image => (
-                //image.image_id != undefined &&
                 <View key={image.id} style={styles.imageSegment}>
                     <TouchableOpacity
                         style={{
@@ -37,7 +36,6 @@ function GetImage({artworksList, navigation,}) {
                 </View>
             ))}
         </View>
-
     );
 }
 

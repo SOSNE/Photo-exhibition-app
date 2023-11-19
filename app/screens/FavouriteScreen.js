@@ -11,10 +11,7 @@ function FavouriteScreen({navigation}) {
         try {
             const fileContent = await FileSystem.readAsStringAsync(path);
             setData(JSON.parse(fileContent));
-
-
         } catch (error) {
-            console.error('Błąd podczas pobierania danych do pliku:', error);
             return null
         }
     }
@@ -25,7 +22,7 @@ function FavouriteScreen({navigation}) {
     return (
         <View style={styles.container}>
             <ScrollView>
-                
+
                 <GetImage navigation={navigation} artworksList={data}></GetImage>
             </ScrollView>
             <NavBottom navigation={navigation}/>

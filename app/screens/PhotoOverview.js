@@ -24,6 +24,7 @@ function PhotoOverview({route}) {
                         backgroundColor: "black",
                         height: 2,
                         width: "95%",
+                        marginTop: 8,
                     }}
                 />
                 <View>

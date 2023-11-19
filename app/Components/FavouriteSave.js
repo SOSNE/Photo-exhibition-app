@@ -11,7 +11,6 @@ const readDataFromFile = async (path, object) => {
         const fileContent = await FileSystem.readAsStringAsync(path);
         data = JSON.parse(fileContent);
         if (!data.some(item => deepEqual(item, object))) {
-            console.log('Dane zostały zapisane do pliku.');
             data.push(object);
             await FileSystem.writeAsStringAsync(path, JSON.stringify(data))
         } else {
@@ -21,8 +20,6 @@ const readDataFromFile = async (path, object) => {
 
 
     } catch (error) {
-        console.error('Błąd podczas zapisywania danych do pliku:', error);
-
         return null
     }
     //console.log(data)

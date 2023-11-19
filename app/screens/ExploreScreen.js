@@ -21,16 +21,14 @@ function GenerateNewRandomNumber(min, max) {
 
 function ExploreScreen({navigation}) {
     const [artworksList, setArtworksList] = useState([]);
-    const [pageNum, setPageNum] = useState(GenerateNewRandomNumber(1, 83));
+    const [pageNum, setPageNum] = useState(GenerateNewRandomNumber(1, 154));
 
     const scrollHandler = (event) => {
         const scrollViewCurrentOffset = event.nativeEvent.contentOffset.y;
         const scrollViewHeight = event.nativeEvent.contentSize.height;
         const scrollViewHeightNow = event.nativeEvent.layoutMeasurement.height;
         if (scrollViewCurrentOffset + scrollViewHeightNow >= scrollViewHeight - 5) {
-            const newPageNum = GenerateNewRandomNumber(1, 154);
-            setPageNum(newPageNum);
-            console.log("yes" + newPageNum);
+            setPageNum(GenerateNewRandomNumber(1, 154));
         }
     }
 
@@ -38,7 +36,11 @@ function ExploreScreen({navigation}) {
         fetch(`https://api.artic.edu/api/v1/artworks/search?q=[term][is_public_domain]=true&page=${pageNum}&limit=8&fields=id,title,image_id,artist_title`)
             .then(response => response.json())
             .then(data => {
-                setArtworksList(prevArtworksList => [...prevArtworksList, ...data.data]);
+                if (data.data !== undefined) {
+                    setArtworksList(prevArtworksList => [...prevArtworksList, ...data.data]);
+                } else {
+                    setPageNum(GenerateNewRandomNumber(1, 154));
+                }
                 //console.log(artworksList);
             })
             .catch(error => console.error('Error:', error));
