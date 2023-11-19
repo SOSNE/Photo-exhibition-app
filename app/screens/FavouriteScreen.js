@@ -16,9 +16,8 @@ function FavouriteScreen({navigation}) {
         }
     }
     useEffect(() => {
-        readDataFromFile(`${FileSystem.documentDirectory}favouriteSave.json`);
+        readDataFromFile(`${FileSystem.documentDirectory}favouriteSave.json`)
     }, [data]);
-
     return (
         <View style={styles.container}>
             <View style={styles.textTopBarr}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Platform, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, Animated} from "react-native";
+import {Image, Platform, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import FavouriteSave from "../Components/FavouriteSave";
 import * as FileSystem from "expo-file-system";
 

@@ -24,7 +24,7 @@ function FavouriteSave({path, object}) {
     }
     if (artworksDataList != null) {
         useEffect(() => {
-            
+
             }, [artworksDataList]
         )
     }
